@@ -1,0 +1,21 @@
+﻿@page
+@model FizzBuzzWeb.Pages.Index1Model
+@{
+}
+
+<p>Dane w zapisane w sesji</p>
+@if (Model.FizzBuzz != null)
+{
+    <p>
+        Wpisywana liczba:
+        @Model.FizzBuzz.NumberInput
+    </p>
+    <p>
+        Data wyszukiwania:
+        @Model.FizzBuzz.Data
+    </p>
+    <p>
+        Wynik fizz/buzz:
+        @Model.FizzBuzz.Outcome()
+    </p>
+}

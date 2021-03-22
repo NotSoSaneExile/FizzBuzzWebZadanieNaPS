@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "FizzBuzz.NET";
+}
+<form method="post">
+    <div class="form-row text-center">
+        <div class="form-group col text-center">
+            <input asp-for="FizzBuzz.NumberInput" type="number" class="form-control">
+            <b><span asp-validation-for="FizzBuzz.NumberInput" class="text-danger"></span></b>
+        </div>
+    </div>
+    <div class="col text-center">
+        <button type="submit" class="btn btn-primary">Zatwierdź</button>
+    </div>
+    <div class="col text-center">
+        @if (Model.FizzBuzz.Outcome() != "" && Model.FizzBuzz != null && Model.FizzBuzz.NumberInput > 0 && Model.FizzBuzz.NumberInput < 1001)
+        {
+            <p>Otrzymano: @Model.FizzBuzz.Outcome()</p>
+        }
+        else if(Model.FizzBuzz != null && Model.FizzBuzz.NumberInput > 0 && Model.FizzBuzz.NumberInput < 1001)
+        {
+            <p>Liczba: @Model.FizzBuzz.NumberInput nie spełnia kryteriów Fizz / Buzz</p>
+        }
+    </div>
+</form>
