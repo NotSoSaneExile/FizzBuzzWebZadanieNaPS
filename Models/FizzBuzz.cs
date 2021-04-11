@@ -8,8 +8,10 @@ namespace FizzBuzzWeb.Models
 {
     public class FizzBuzz
     {
+        public int Id { get; set; }
         [Range(1, 1000, ErrorMessage = "Wymagany jest zakres od 1 do 1000"), Required]
         public int NumberInput { get; set; }
+        [Required]
         public DateTime Data = DateTime.Now;
         public string Outcome()
         {
