@@ -1,0 +1,33 @@
+﻿@page
+@model FizzBuzzWeb.Pages.FizzBaza.IndexModel
+
+@{
+    ViewData["Title"] = "FizzBazowa Baza Danych";
+}
+
+<h1>Fizz"Bazowa" Baza Danych :)</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Wpisana liczba|Data wyszukiwania|Wynik
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@for(int i = Model.FizzBuzz.Count-1; i>Model.FizzBuzz.Count-11; i--) {
+        <tr>
+            <td>`10
+                @Html.DisplayFor(modelItem => modelItem.FizzBuzz[i].NumberInput) |
+                @Html.DisplayFor(modelItem => modelItem.FizzBuzz[i].Data) |
+                @Html.DisplayFor(modelItem => modelItem.FizzBuzz[i].Out) |
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@Model.FizzBuzz[i].Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
