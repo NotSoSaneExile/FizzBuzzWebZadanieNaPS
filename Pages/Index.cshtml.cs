@@ -33,7 +33,11 @@ namespace FizzBuzzWeb.Pages
         {
             if (ModelState.IsValid)
             {
+                FizzBuzz.Out = FizzBuzz.Outcome();
+                FizzBuzz.Data = System.DateTime.Now;
                 HttpContext.Session.SetString("FizzBuzz", JsonConvert.SerializeObject(FizzBuzz));
+                _context.FizzBuzz.Add(FizzBuzz);
+                _context.SaveChangesAsync();
                 return Page();
             }
             return Page();

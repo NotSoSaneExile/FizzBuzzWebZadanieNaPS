@@ -1,0 +1,33 @@
+﻿@page
+@model FizzBuzzWeb.Pages.FizzBaza.IndexModel
+
+@{
+    ViewData["Title"] = "FizzBazowa Baza Danych";
+}
+
+<h1>Fizz"Bazowa" Baza Danych :)</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Dane
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.FizzBuzz) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberInput)
+                @Html.DisplayFor(modelItem => item.Data)
+                @Html.DisplayFor(modelItem => item.Out)
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

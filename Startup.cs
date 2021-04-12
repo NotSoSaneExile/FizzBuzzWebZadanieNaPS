@@ -25,7 +25,7 @@ namespace FizzBuzzWeb
             services.AddDistributedMemoryCache();
 
             services.AddDbContext<FizzBuzzContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("PKDataBase"));
+                options.UseSqlServer(Configuration.GetConnectionString("PKDatabase"));
             });
 
             services.AddSession(options =>
