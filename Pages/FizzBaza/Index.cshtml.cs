@@ -21,9 +21,12 @@ namespace FizzBuzzWeb.Pages.FizzBaza
 
         public IList<FizzBuzz> FizzBuzz { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            FizzBuzz = await _context.FizzBuzz.ToListAsync();
+            var FizzBuzzQuery = from FizzBuzz in _context.FizzBuzz
+                                orderby FizzBuzz.Data descending
+                                select FizzBuzz;
+            FizzBuzz = FizzBuzzQuery.Take(10).ToList();
         }
     }
 }
